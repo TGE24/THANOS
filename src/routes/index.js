@@ -10,8 +10,9 @@ router.get("/", function(req, res, next) {
 router.get(
   "/dashboard",
   userController.allowIfLoggedin,
+  userController.grantAccess("readAny", "profile"),
   (req, res, next) => {
-    res.render("coo-dash");
+    res.render("coo-dash", { user: res.locals.loggedInUser });
   }
 );
 
@@ -23,7 +24,13 @@ router.get("/signup", function(req, res, next) {
 router.post("/signup", userController.signup);
 
 router.post("/login", userController.login, (req, res) => {
-  res.redirect("/dashboard");
+  if (req.session.user.role === "student") {
+    res.redirect("/student");
+  } else if (req.session.user.role === "coordinator") {
+    res.redirect("/dashboard");
+  } else if (req.session.user.role === "supervisor") {
+    res.redirect("/supervisor");
+  }
 });
 
 router.get(

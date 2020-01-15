@@ -58,6 +58,7 @@ exports.login = async (req, res, next) => {
     );
     await User.findByIdAndUpdate(user._id, { accessToken });
     req.session.token = accessToken;
+    req.session.user = user;
     res.status(200);
     next();
   } catch (error) {
