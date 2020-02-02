@@ -1,0 +1,152 @@
+<!--***** HEADER FILE INCLUDES ALL CSS LINKS AND META TAGS ***** -->
+<% include partials/header %>
+
+<body class="theme-blue">
+
+<div id="wrapper">
+
+    <!--***** NAVIGATION BAR ***** -->
+    <% include partials/navbar %>
+
+
+    <!--***** SIDE BAR ***** -->
+    <% include partials/sidebar %>
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">                        
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Team</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item active">Team</li>
+                        </ul>
+                    </div>            
+                    <div class="col-lg-6 col-md-4 col-sm-12 text-right">
+                        <div class="bh_chart hidden-xs">
+                            <div class="float-left m-r-15">
+                                <small>Visitors</small>
+                                <h6 class="mb-0 mt-1"><i class="icon-user"></i> 1,784</h6>
+                            </div>
+                            <span class="bh_visitors float-right">2,5,1,8,3,6,7,5</span>
+                        </div>
+                        <div class="bh_chart hidden-sm">
+                            <div class="float-left m-r-15">
+                                <small>Visits</small>
+                                <h6 class="mb-0 mt-1"><i class="icon-globe"></i> 325</h6>
+                            </div>
+                            <span class="bh_visits float-right">10,8,9,3,5,8,5</span>
+                        </div>
+                        <div class="bh_chart hidden-sm">
+                            <div class="float-left m-r-15">
+                                <small>Chats</small>
+                                <h6 class="mb-0 mt-1"><i class="icon-bubbles"></i> 13</h6>
+                            </div>
+                            <span class="bh_chats float-right">1,8,5,6,2,4,3,2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <form class="mb-4 mt-3">
+                        <div class="form-group mb-2 m-l-0">
+                            <label for="inputPassword2" class="sr-only">Search</label>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Supervisors</h2>                            
+                        </div>                        
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                          
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                        <% for(let i=0; i<supervisors.length; i++) {%>
+                                        <tr>
+                                            <td><%= supervisors[i].name%></td>
+                                            <td><%= supervisors[i].email%></td>
+                                            <td><%= supervisors[i].phone%></td>
+                                            <td><a href="/admin/supervisor/<%= supervisors[i].id %>"><button class="btn btn-outline-success">View More</button></a></td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+
+<!-- Javascript -->
+<script src="/assets/bundles/libscripts.bundle.js"></script>    
+<script src="/assets/bundles/vendorscripts.bundle.js"></script>
+
+<script src="/assets/bundles/datatablescripts.bundle.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.print.min.js"></script>
+
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js --> 
+
+<script src="/assets/bundles/mainscripts.bundle.js"></script>
+<script src="/assets/js/pages/tables/jquery-datatable.js"></script>
+<script src="/assets/js/pages/ui/dialogs.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js"></script>
+<script>
+    $(function () {
+        $('#progress-format1 .progress-bar').progressbar({
+            display_text: 'fill'
+        });
+
+        $('#progress-format2 .progress-bar').progressbar({
+            display_text: 'fill',
+            use_percentage: false
+        });
+
+        $('#progress-custom-format .progress-bar').progressbar({
+            display_text: 'fill',
+            use_percentage: false,
+            amount_format: function (p, t) {
+                return p + ' of ' + t;
+            }
+        });
+
+        $('#progress-striped .progress-bar, #progress-striped-active .progress-bar, #progress-stacked .progress-bar').progressbar({
+            display_text: 'fill'
+        });
+
+        $('.progress.vertical .progress-bar').progressbar();
+        $('.progress.vertical.wide .progress-bar').progressbar({
+            display_text: 'fill'
+        });
+    });
+</script>
+</body>
+
+<!-- Mirrored from www.wrraptheme.com/templates/lucid/hr/html/light/project-team.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Dec 2019 11:50:52 GMT -->
+</html>

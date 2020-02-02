@@ -17,7 +17,25 @@
               <p class="lead">Create an account</p>
             </div>
             <div class="body">
-              <form class="form-auth-small">
+              <form
+                class="form-auth-small"
+                action="/signup"
+                method="POST"
+              >
+                <div class="form-group">
+                  <label
+                    for="signup-email"
+                    class="control-label sr-only"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="signup-name"
+                    placeholder="Your name"
+                  />
+                </div>
                 <div class="form-group">
                   <label
                     for="signup-email"
@@ -26,9 +44,38 @@
                   >
                   <input
                     type="email"
+                    name="email"
                     class="form-control"
                     id="signup-email"
                     placeholder="Your email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label
+                    for="signup-phone"
+                    class="control-label sr-only"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="number"
+                    name="phone"
+                    class="form-control"
+                    id="signup-phone"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div class="form-group">
+                  <label
+                    for="signup-phone"
+                    class="control-label sr-only"
+                    >Reg Number</label
+                  >
+                  <input
+                    type="text"
+                    name="regNo"
+                    class="form-control"
+                    id="signup-regno"
+                    placeholder="Reg Number"
                   />
                 </div>
                 <div class="form-group">
@@ -39,6 +86,7 @@
                   >
                   <input
                     type="password"
+                    name="password"
                     class="form-control"
                     id="signup-password"
                     placeholder="Password"

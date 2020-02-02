@@ -1,0 +1,136 @@
+<% include partials/header %>
+
+<body class="theme-blue">
+
+<div id="wrapper">
+
+    <!--***** NAVIGATION BAR ***** -->
+    <% include partials/navbar %>
+
+
+    <!--***** SIDE BAR ***** -->
+    <% include partials/sidebar %>
+
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">                        
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Client Detail</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>                            
+                            <li class="breadcrumb-item">Clients</li>
+                            <li class="breadcrumb-item active">Client Detail</li>
+                        </ul>
+                    </div>            
+                    <div class="col-lg-6 col-md-4 col-sm-12 text-right">
+                        <div class="bh_chart hidden-xs">
+                            <div class="float-left m-r-15">
+                                <small>Visitors</small>
+                                <h6 class="mb-0 mt-1"><i class="icon-user"></i> 1,784</h6>
+                            </div>
+                            <span class="bh_visitors float-right">2,5,1,8,3,6,7,5</span>
+                        </div>
+                        <div class="bh_chart hidden-sm">
+                            <div class="float-left m-r-15">
+                                <small>Visits</small>
+                                <h6 class="mb-0 mt-1"><i class="icon-globe"></i> 325</h6>
+                            </div>
+                            <span class="bh_visits float-right">10,8,9,3,5,8,5</span>
+                        </div>
+                        <div class="bh_chart hidden-sm">
+                            <div class="float-left m-r-15">
+                                <small>Chats</small>
+                                <h6 class="mb-0 mt-1"><i class="icon-bubbles"></i> 13</h6>
+                            </div>
+                            <span class="bh_chats float-right">1,8,5,6,2,4,3,2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card client-detail">
+                        <div class="body">
+                            <div class="profile-image">
+                                <img src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/images/user.png" alt="">
+                            </div>
+                            <div class="details">
+                                <h4 class="m-t-0 m-b-0"><%= supervisor.name %></h4>
+                                <span class="job_post">CEO</span>
+                                <p>795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
+                                <p class="social-icon">
+                                    <a title="Twitter" href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                                    <a title="Facebook" href="javascript:void(0);"><i class="fa fa-facebook"></i></a>
+                                    <a title="Google-plus" href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                                    <a title="Behance" href="javascript:void(0);"><i class="fa fa-behance"></i></a>
+                                    <a title="Instagram" href="javascript:void(0);"><i class="fa fa-instagram "></i></a>
+                                </p>                                
+                                <div class="m-t-15">
+                                    <button class="btn btn-primary">Follow</button>
+                                    <button class="btn btn-success">Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Supervisors</h2>                            
+                        </div>                        
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Reg Number</th>
+                                            <th>Email</th>
+                                            <th>Topic</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                        <% for(let i=0; i<students.length; i++) {%>
+                                        <tr>
+                                            <td><%= students[i].name%></td>
+                                            <td><%= students[i].regNo%></td>
+                                            <td><%= students[i].email%></td>
+                                            <td><%= students[i].project%></td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- Javascript -->
+<script src="/assets/bundles/libscripts.bundle.js"></script>    
+<script src="/assets/bundles/vendorscripts.bundle.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/vendor/jquery-datatable/buttons/buttons.print.min.js"></script>
+<script src="/assets/bundles/mainscripts.bundle.js"></script>
+<script>
+    $('.progress .progress-bar').progressbar({
+            display_text: 'none'
+    });
+</script>
+</body>
+
+<!-- Mirrored from www.wrraptheme.com/templates/lucid/hr/html/light/client-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Dec 2019 11:50:52 GMT -->
+</html>

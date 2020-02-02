@@ -2,6 +2,10 @@
   "name": "thanos",
   "version": "0.0.0",
   "private": true,
+  "author": {
+    "name": "ThankGod Egbo",
+    "email": "thankgodegbo@gmail.com"
+  },
   "scripts": {
     "start": "npm run prod",
     "server": "babel-node ./src/bin/www",

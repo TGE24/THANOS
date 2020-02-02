@@ -7,6 +7,7 @@ import config from "../config/db";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import User from "../src/models/userModel";
+import Student from "../src/models/student";
 import jwt from "jsonwebtoken";
 import session from "express-session";
 
